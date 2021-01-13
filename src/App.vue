@@ -7,7 +7,19 @@
 
 <script>
   import FooterGuide from './components/FooterGuide/FooterGuide'
+  import {mapActions} from 'vuex'
+  import {reqFoodCategorys} from './api'
+
   export default {
+    mounted () {
+      this.$store.dispatch('getAddress')
+      // const  result = await reqFoodCategorys()
+      // console.log(result)
+      this.getUserInfo()
+    },
+    methods:{
+      ...mapActions(['getUserInfo'])
+    },
     components:{
       FooterGuide
     }
